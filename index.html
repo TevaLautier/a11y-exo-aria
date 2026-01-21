@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercice Accessibilité : ARIA & Landmarks</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      header,
+      footer {
+        background: #333;
+        color: white;
+        padding: 1rem;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 0;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Style visuel pour la page active */
+      .active {
+        border-bottom: 2px solid orange;
+        font-weight: bold;
+      }
+
+      main {
+        padding: 2rem;
+        max-width: 800px;
+        margin: auto;
+      }
+      .file-list {
+        margin-top: 2rem;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      .file-list th,
+      .file-list td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      .file-list tr:nth-child(even) {
+        background-color: #f2 f2 f2;
+      }
+
+      button {
+        cursor: pointer;
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+      }
+      .footer-nav {
+        background: #444;
+        padding: 10px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Mon Portail Documentaire</h1>
+      <!-- EXERCICE : Ajouter un label à ce landmark nav et aria-current sur le lien actif -->
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Accueil</a></li>
+          <li><a href="#">Documents</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Liste des fichiers à télécharger</h2>
+      <p>Veuillez choisir le document souhaité dans la liste ci-dessous.</p>
+
+      <table class="file-list">
+        <thead>
+          <tr>
+            <th>Nom du document</th>
+            <th>Format</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- EXERCICE : Utiliser aria-labelledby pour lier le bouton au nom du fichier -->
+          <tr>
+            <td id="file1">Rapport Annuel 2023</td>
+            <td>PDF</td>
+            <td><button>Télécharger</button></td>
+          </tr>
+          <tr>
+            <td id="file2">Guide de l'utilisateur</td>
+            <td>DOCX</td>
+            <td><button>Télécharger</button></td>
+          </tr>
+          <tr>
+            <td id="file3">Planning des formations</td>
+            <td>XLSX</td>
+            <td><button>Télécharger</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Formation Accessibilité</p>
+      <!-- EXERCICE : Ajouter un label à ce second landmark nav pour le différencier du premier -->
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">Plan du site</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
